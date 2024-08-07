@@ -170,3 +170,20 @@ resource "hydra_jobset" "nixpkgs_rocm" {
   email_notifications = false
   email_override      = ""
 }
+
+resource "hydra_jobset" "nixpkgs_unfree" {
+  project     = hydra_project.nixpkgs.name
+  state       = "enabled"
+  visible     = true
+  name        = "unfree"
+  type        = "flake"
+  description = "nixpkgs-unstable unfree packages"
+
+  flake_uri = "github:numtide/nixpkgs-unfree/nixpkgs-unstable"
+
+  check_interval    = 1800
+  scheduling_shares = 5000
+  keep_evaluations  = 1
+
+  email_notifications = false
+}
