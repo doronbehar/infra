@@ -42,6 +42,7 @@
     evalMaxMemorySize = 4096;
     evalWorkerCount = 32;
     jobReportLimit = 100;
+    outputsPath = "/var/www/buildbot/nix-outputs/";
     workersFile = config.sops.secrets.buildbot-nix-workers.path;
     cachix = {
       enable = true;
